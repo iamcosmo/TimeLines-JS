@@ -38,9 +38,9 @@ document.addEventListener('wheel', function(event) {
             const nextItem = items[currentFilledIndex + 1];
             const nextCircle = nextItem.querySelector('.circle');
             const nextLine = nextItem.querySelector('.line');
-            nextCircle.style.backgroundColor = '#4662c7';
+            nextCircle.style.backgroundColor = '#4b99ba';
             if (nextLine) {
-                nextLine.style.backgroundColor = '#4662c7';
+                nextLine.style.backgroundColor = '#4b99ba';
             }
             currentYearDiv.textContent = nextItem.getAttribute('data-year');
             dynamicText.textContent = nextItem.getAttribute('data-text');
