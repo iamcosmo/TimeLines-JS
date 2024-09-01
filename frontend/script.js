@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.timeline-item');
     const currentYearDiv = document.querySelector('.current-year');
 
-    // Reset all circles and lines to their initial state
     items.forEach((item, index) => {
         const circle = item.querySelector('.circle');
         const line = item.querySelector('.line');
@@ -13,17 +12,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Ensure the first circle is the starting point
     currentYearDiv.textContent = items[0].getAttribute('data-year');
 });
 
-// Wheel event listener for scrolling animation
+
 document.addEventListener('wheel', function(event) {
     const items = document.querySelectorAll('.timeline-item');
     const currentYearDiv = document.querySelector('.current-year');
     let currentFilledIndex = -1;
 
-    // Find the current last filled circle
+    
     for (let i = 0; i < items.length; i++) {
         const circle = items[i].querySelector('.circle');
         if (circle.style.backgroundColor === 'lightgray') {
@@ -33,7 +31,7 @@ document.addEventListener('wheel', function(event) {
     }
 
     if (event.deltaY > 0) {
-        // Scroll down - fill the next item
+       
         if (currentFilledIndex < items.length - 1) {
             const nextItem = items[currentFilledIndex + 1];
             const nextCircle = nextItem.querySelector('.circle');
@@ -45,7 +43,7 @@ document.addEventListener('wheel', function(event) {
             currentYearDiv.textContent = nextItem.getAttribute('data-year');
         }
     } else {
-        // Scroll up - unfill the current item
+        
         if (currentFilledIndex >= 0) {
             const currentItem = items[currentFilledIndex];
             const currentCircle = currentItem.querySelector('.circle');

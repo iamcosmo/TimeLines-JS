@@ -14,7 +14,7 @@ body, html {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px; 
 }
 
 .image-circle {
@@ -34,6 +34,24 @@ body, html {
 .current-year {
     font-size: 24px;
     font-weight: bold;
+}
+
+
+.info-card {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 50px; 
+}
+
+.info-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .timeline-container {
@@ -90,7 +108,7 @@ body, html {
 
 
 .timeline-item:not(:last-child) .line {
-    margin-left: 0; 
+    margin-left: 0;
 }
 
 .timeline-item:last-child .line {
