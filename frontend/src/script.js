@@ -13,12 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     currentYearDiv.textContent = items[0].getAttribute('data-year');
+    dynamicText.textContent = items[0].getAttribute('data-text');
 });
 
 
 document.addEventListener('wheel', function(event) {
     const items = document.querySelectorAll('.timeline-item');
     const currentYearDiv = document.querySelector('.current-year');
+    const dynamicText = document.getElementById('dynamic-text');
     let currentFilledIndex = -1;
 
     
@@ -41,6 +43,7 @@ document.addEventListener('wheel', function(event) {
                 nextLine.style.backgroundColor = '#4CAF50';
             }
             currentYearDiv.textContent = nextItem.getAttribute('data-year');
+            dynamicText.textContent = nextItem.getAttribute('data-text');
         }
     } else {
         
@@ -52,9 +55,23 @@ document.addEventListener('wheel', function(event) {
             if (currentLine) {
                 currentLine.style.backgroundColor = 'lightgray';
             }
-            currentYearDiv.textContent = currentFilledIndex > 0 
-                ? items[currentFilledIndex - 1].getAttribute('data-year') 
-                : items[0].getAttribute('data-year');
+            // currentYearDiv.textContent = currentFilledIndex > 0 
+            //     ? items[currentFilledIndex - 1].getAttribute('data-year') 
+            //     : items[0].getAttribute('data-year');
+
+
+
+                const previousPreviousItem = items[currentFilledIndex - 1];
+                const previousPreviousCircle = previousPreviousItem.querySelector('.circle');
+                const previousPreviousLine = previousPreviousItem.querySelector('.line');
+                if (previousPreviousCircle) {
+                    previousPreviousCircle.classList.add('lightgray');
+                }
+                if (previousPreviousLine) {
+                    previousPreviousLine.classList.add('lightgray');
+                }
+                currentYearDiv.textContent = previousPreviousItem.getAttribute('data-year');
+                dynamicText.textContent = previousPreviousItem.getAttribute('data-text');
         }
     }
 });
